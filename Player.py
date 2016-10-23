@@ -21,6 +21,32 @@ class Player():
         else:
             return False
 
+    def set_card_locations(self):
+        if self.location == 'N':
+            x = 520
+            for card in self.cards:
+                card.set_position(x,130)
+                x += 20
+
+        elif self.location == 'W':
+            y = 240
+            for card in self.cards:
+                card.set_position(180, y)
+                y += 20
+
+        elif self.location == 'E':
+            y = 240
+            for card in self.cards:
+                card.set_position(1100, y)
+                y += 20
+
+        elif self.location == 'S':
+            x = 520
+            for card in self.cards:
+                card.flip_card()
+                card.set_position(x, 450)
+                x += 20
+
 class PlayerIcon(pygame.sprite.Sprite):
     def __init__(self, location, background):
         pygame.sprite.Sprite.__init__(self) #call Sprite initializer
@@ -28,6 +54,8 @@ class PlayerIcon(pygame.sprite.Sprite):
         self.location = location
         screen = pygame.display.get_surface()
         self.area = screen.get_rect()
+
+        # display labels and icons
         font = pygame.font.Font(None, 36)
         if location == 'N':
             self.rect.midtop = background.get_width() / 2, 10
@@ -40,12 +68,12 @@ class PlayerIcon(pygame.sprite.Sprite):
             textpos = text.get_rect(centerx=background.get_width() / 2, centery=background.get_height() - 130)
             background.blit(text, textpos)
         elif location == 'W':
-            self.rect.midleft = 10, 400
+            self.rect.midleft = 10, 480
             text = font.render("Gary", 1, (255, 255, 255))
             textpos = text.get_rect(centerx=35, centery=background.get_height() / 2 + 50)
             background.blit(text, textpos)
         elif location == 'E':
-            self.rect.midright = 1290, 400
+            self.rect.midright = 1290, 480
             text = font.render("Sam", 1, (255, 255, 255))
             textpos = text.get_rect(centerx=background.get_width() - 40, centery=background.get_height() / 2 + 50)
             background.blit(text, textpos)

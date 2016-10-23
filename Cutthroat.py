@@ -9,7 +9,7 @@ import Card
 def main():
     # init everything
     pygame.init()
-    screen = pygame.display.set_mode((1300, 800))
+    screen = pygame.display.set_mode((1300, 980))
     pygame.display.set_caption('Cutthroat Killer Spades')
     clock = pygame.time.Clock()
 
@@ -34,6 +34,10 @@ def main():
     player_sprites = pygame.sprite.RenderPlain((players[0].playerIcon, players[1].playerIcon,
                                                players[2].playerIcon, players[3].playerIcon))
 
+    card_sprites = []
+    for card in cards:
+        card_sprites.append(pygame.sprite.RenderPlain(cards[card]))
+
     # start a new game
     start_game(cards, players)
 
@@ -52,6 +56,8 @@ def main():
         # Draw Everything
         screen.blit(background, (0, 0))
         player_sprites.draw(screen)
+        for card in card_sprites:
+            card.draw(screen)
 
         # Display scores/bids
         score_text = myfont.render("Tricks {0}".format(players[0].tricks_won), 1, (255, 255, 255))
@@ -80,6 +86,8 @@ def main():
 
 def start_game(cards, players):
     assign_cards(cards, players)
+    for player in players:
+        player.set_card_locations()
 
 
 def init_cards():

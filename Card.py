@@ -9,6 +9,15 @@ class Card(pygame.sprite.Sprite):
         self.value = value
         self.image, self.rect = load_image('images/card-back.jpg', -1)
 
-    def set_position(self, pos):
-        self.rect.midtop = pos
+        screen = pygame.display.get_surface()
+        self.area = screen.get_rect()
+
+    def set_position(self, x, y):
+        self.rect.midtop = (x, y)
+
+    def flip_card(self):
+        filename = 'images/card_images/' + self.value + '_of_' + self.suit + '.png'
+        self.image, self.rect = load_image(filename, -1)
+
+
 
