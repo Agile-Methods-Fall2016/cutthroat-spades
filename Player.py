@@ -31,22 +31,22 @@ class PlayerIcon(pygame.sprite.Sprite):
         font = pygame.font.Font(None, 36)
         if location == 'N':
             self.rect.midtop = background.get_width() / 2, 10
-            text = font.render("Tim", 1, (10, 10, 10))
+            text = font.render("Tim", 1, (255, 255, 255))
             textpos = text.get_rect(centerx=background.get_width() / 2, centery=100)
             background.blit(text, textpos)
         elif location == 'S':
             self.rect.midbottom = 650, 760
-            text = font.render("You", 1, (10, 10, 10))
+            text = font.render("Mark", 1, (255, 255, 255))
             textpos = text.get_rect(centerx=background.get_width() / 2, centery=background.get_height() - 130)
             background.blit(text, textpos)
         elif location == 'W':
             self.rect.midleft = 10, 400
-            text = font.render("Gary", 1, (10, 10, 10))
+            text = font.render("Gary", 1, (255, 255, 255))
             textpos = text.get_rect(centerx=35, centery=background.get_height() / 2 + 50)
             background.blit(text, textpos)
         elif location == 'E':
             self.rect.midright = 1290, 400
-            text = font.render("Sam", 1, (10, 10, 10))
+            text = font.render("Sam", 1, (255, 255, 255))
             textpos = text.get_rect(centerx=background.get_width() - 40, centery=background.get_height() / 2 + 50)
             background.blit(text, textpos)
 
