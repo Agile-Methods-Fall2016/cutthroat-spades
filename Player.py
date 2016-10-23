@@ -1,6 +1,6 @@
 import Card
 import pygame
-from Utilities import load_image
+from Utilities import load_image, suits, values
 
 
 class Player():
@@ -41,11 +41,22 @@ class Player():
                 y += 20
 
         elif self.location == 'S':
-            x = 520
+            self.sort_cards()
+            x = 90
             for card in self.cards:
                 card.flip_card()
-                card.set_position(x, 450)
-                x += 20
+                card.set_position(x, 680)
+                x += 90
+
+    def sort_cards(self):
+        new_cards = []
+        for suit in suits:
+            for value in values:
+                for card in self.cards:
+                    if card.suit == suit and card.value == value:
+                        new_cards.append(card)
+        self.cards = new_cards
+
 
 class PlayerIcon(pygame.sprite.Sprite):
     def __init__(self, location, background):
@@ -63,7 +74,7 @@ class PlayerIcon(pygame.sprite.Sprite):
             textpos = text.get_rect(centerx=background.get_width() / 2, centery=100)
             background.blit(text, textpos)
         elif location == 'S':
-            self.rect.midbottom = 650, 760
+            self.rect.midbottom = 650, 950
             text = font.render("Mark", 1, (255, 255, 255))
             textpos = text.get_rect(centerx=background.get_width() / 2, centery=background.get_height() - 130)
             background.blit(text, textpos)

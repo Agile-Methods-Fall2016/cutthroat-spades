@@ -3,8 +3,8 @@ import pygame
 from pygame.locals import *
 
 
-suits = ['hearts', 'clubs', 'diamonds', 'spades']
-values = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king']
+suits = ['diamonds', 'clubs', 'hearts', 'spades']
+values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace']
 
 def load_image(name, colorkey=None):
     try:

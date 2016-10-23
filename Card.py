@@ -16,8 +16,8 @@ class Card(pygame.sprite.Sprite):
         self.rect.midtop = (x, y)
 
     def flip_card(self):
-        filename = 'images/card_images/' + self.value + '_of_' + self.suit + '.png'
-        self.image, self.rect = load_image(filename, -1)
+        filename = 'images/card_images/' + self.value + '_of_' + self.suit + '.jpg'
+        self.image, self.rect = load_image(filename, (20,60,20,0))
 
 
 
