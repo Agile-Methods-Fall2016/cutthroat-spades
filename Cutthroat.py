@@ -80,7 +80,7 @@ def main():
         bid_text = myfont.render("Bid {0}".format(players[3].bid), 1, (255, 255, 255))
         screen.blit(bid_text, (15, background.get_height() / 2 + 100))
 
-
+        # show display
         pygame.display.flip()
 
 
