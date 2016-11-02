@@ -6,7 +6,7 @@ import Player
 import Card
 
 
-def main():
+def main_game():
     # init everything
     pygame.init()
     screen = pygame.display.set_mode((1300, 980))
@@ -110,4 +110,4 @@ def assign_cards(cards, players):
 
 
 if __name__ == '__main__':
-    main()
+    main_game()
